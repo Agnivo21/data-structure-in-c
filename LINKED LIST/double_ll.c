@@ -133,6 +133,40 @@ void deleteAtend()
   free(curr);
 }
 
+void deleteAtpos(int pos)
+{
+	struct DLLNODE *temp2,*temp=head;
+	if(head==NULL)
+	{
+		printf("LIST IS EMPTY\n");
+		return;
+	}
+	if(pos==1)
+	{
+		head=head->next;
+
+	}
+     
+     int k=1;
+	while(k<pos && temp->next !=NULL)
+	{
+		temp=temp->next;
+		k++;
+	}
+	if(k<pos-1)
+	{
+		printf("DESIRED POSITION DOESNOT EXISTS");
+		return;
+	}
+	temp2=temp->prev;
+	temp2->next=temp->next;
+	if(temp->next)
+		temp->next->prev=temp2;
+	free(temp);
+}
+
+
+
 void main()
 {
 	insertAtbegin(10);
@@ -157,6 +191,9 @@ void main()
 	display();
 	printf("\ndelete at end\n");
 	deleteAtend();
+	display();
+	printf("\ndelete at pos\n");
+	deleteAtpos(3);
 	display();
 
 }
