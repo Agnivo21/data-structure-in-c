@@ -86,6 +86,10 @@ void postorder(struct BinarySearchTreeNode *root)
 		printf("%d ",root->data);
 	}
 }
+
+
+
+
 struct BinarySearchTreeNode* min(struct BinarySearchTreeNode *root)
 {
 	if (root==NULL)
